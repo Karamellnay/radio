@@ -45,16 +45,15 @@ public class RadioTest {
     @Test
     public void chooseRadiostation() {
         Radio radio = new Radio();
-        radio.currentRadioStation = 3;
+        radio.setCurrentRadioStation(3);
         int expected = 3;
-        int actual = radio.currentRadioStation;
+        int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
     @Test
     public void checkVolumeOnIncreaseMax() {
         Radio radio = new Radio();
         radio.setCurrentVolume(100);
-        radio.increaseVolume();
         int expected = 100;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
@@ -86,6 +85,47 @@ public class RadioTest {
         radio.decreaseRadiostation();
         int expected = 9;
         int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void chooseRadiostationBoundary() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStation(10);
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void chooseVolumeBoundary() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(101);
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void chooseRadiostationBoundaryNegative() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStation(- 1);
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void chooseVolumeBoundaryNegative() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(- 1);
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void checkVolumeOnIncreaseBoundary() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(100);
+        radio.increaseVolume();
+        int expected = 100;
+        int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
 }
