@@ -165,4 +165,22 @@ public class RadioTest {
         int actual = radio.getMinVolume();
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void checkRadiostationOnIncreaseMaxBoundary() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStation(8);
+        radio.increaseRadioStation();
+        int expected = 9;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void chooseRadioStationNew() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(15);
+        int expected = 15;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
