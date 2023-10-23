@@ -50,10 +50,10 @@ public class Radio {
     public void increaseRadiostation() {
         if (currentRadioStation < 9) {
             currentRadioStation = currentRadioStation + 1;
-        }
-        if (currentRadioStation == 9) {
+        } else {
             currentRadioStation = 0;
         }
+
     }
 
     public void decreaseRadiostation() {

@@ -128,4 +128,13 @@ public class RadioTest {
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void checkRadiostationOnIncreaseMaxBoundary() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStation(8);
+        radio.increaseRadiostation();
+        int expected = 9;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
 }
