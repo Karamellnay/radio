@@ -59,8 +59,7 @@ public class Radio {
     public void decreaseRadiostation() {
         if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
-        }
-        if (currentRadioStation == 0) {
+        } else {
             currentRadioStation = 9;
         }
     }

@@ -137,4 +137,13 @@ public class RadioTest {
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void checkRadiostationOnDecreaseMinBoundary() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStation(1);
+        radio.decreaseRadiostation();
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
 }
